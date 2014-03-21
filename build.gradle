@@ -11,5 +11,7 @@ repositories {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.11'
+    compile 'com.google.guava:guava:r09'
+    testCompile 'junit:junit:4.11',
+            'org.hamcrest:hamcrest-all:1.3'
 }
