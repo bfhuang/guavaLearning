@@ -1,3 +1,4 @@
+import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 
 import java.util.List;
@@ -5,6 +6,7 @@ import java.util.List;
 import static com.google.common.base.Predicates.and;
 import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Lists.transform;
 
 public class PersonRepository {
 List<Person> people = newArrayList(
@@ -42,5 +44,14 @@ List<Person> people = newArrayList(
 				return person.getAge() > 18;
 			}
 		};
+	}
+
+	public List<String> getAllNames() {
+		return newArrayList(transform(people, new Function<Person, String>() {
+			@Override
+			public String apply(Person person) {
+				return person.getName();
+			}
+		}));
 	}
 }

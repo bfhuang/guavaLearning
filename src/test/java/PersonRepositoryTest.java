@@ -38,6 +38,17 @@ public class PersonRepositoryTest {
 		assertThat(personRepository.getAbove18AndNameContains1(), is(expectedPeople));
 	}
 
+	@Test
+	public void should_get_all_the_names_of_people() {
+		List<String> expectedNames = newArrayList(
+				"name1",
+				"name1",
+				"name1",
+				"name",
+				"name1");
+		assertThat(personRepository.getAllNames(), is(expectedNames));
+	}
+
 
 
 }
