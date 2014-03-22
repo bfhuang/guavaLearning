@@ -10,6 +10,7 @@ public class PersonRepositoryTest {
 
 	private PersonRepository personRepository = new PersonRepository();
 	private List<Person> expectedPeople;
+	private List<String> expectedNames;
 
 	@Test
 	public void should_filter_the_person_who_is_under_18_years() {
@@ -40,7 +41,7 @@ public class PersonRepositoryTest {
 
 	@Test
 	public void should_get_all_the_names_of_people() {
-		List<String> expectedNames = newArrayList(
+		expectedNames = newArrayList(
 				"name1",
 				"name1",
 				"name1",
@@ -49,6 +50,9 @@ public class PersonRepositoryTest {
 		assertThat(personRepository.getAllNames(), is(expectedNames));
 	}
 
-
-
+	@Test
+	public void should_get_all_the_name_of_people_who_are_above_18() {
+		expectedNames = newArrayList("name", "name1");
+		assertThat(personRepository.getAllNamesWhosAgeIsAbove18(), is(expectedNames));
+	}
 }
